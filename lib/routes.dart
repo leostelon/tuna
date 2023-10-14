@@ -1,4 +1,5 @@
 import 'package:tuna/screens/create_wallet.dart';
+import 'package:tuna/screens/index.dart';
 import 'package:tuna/screens/splash.dart';
 import 'package:tuna/screens/welcome.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,10 @@ class Routers {
     GetPage(
       name: '/',
       page: () => const Splash(),
+    ),
+    GetPage(
+      name: '/index',
+      page: () => const IndexScreen(),
     ),
     GetPage(
       name: '/welcome',
