@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:tuna/api/scrollscan.dart';
+import 'package:tuna/components/add_contact_modal.dart';
 import 'package:tuna/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -60,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         context: context,
         builder: (_) {
-          return const SizedBox();
+          return const AddContactModal();
           // return const AddContactModal();
         });
     gC();
@@ -214,7 +215,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             padding: const EdgeInsets.all(12),
                             child: GestureDetector(
-                              onTap: () => Get.toNamed("/send"),
+                              onTap: () => Get.toNamed("/send", arguments: {
+                                "symbol": "ETH",
+                                "address": "0x0"
+                              }),
                               child: const Row(
                                 children: [
                                   CircleAvatar(
@@ -330,7 +334,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   (ind == contacts.length
                                       ? CircleAvatar(
-                                          radius: 40,
+                                          radius: 30,
                                           backgroundColor: Colors.grey.shade800,
                                           child: const Center(
                                             child: Icon(
@@ -359,7 +363,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                     ),
-                    const SizedBox(height: 24),
                     // Recent Activity
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
