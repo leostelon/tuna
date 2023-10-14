@@ -2,6 +2,7 @@ import 'package:tuna/screens/create_wallet.dart';
 import 'package:tuna/screens/index.dart';
 import 'package:tuna/screens/settings.dart';
 import 'package:tuna/screens/splash.dart';
+import 'package:tuna/screens/walletimport.dart';
 import 'package:tuna/screens/welcome.dart';
 import 'package:get/get.dart';
 
@@ -28,6 +29,10 @@ class Routers {
     GetPage(
       name: '/settings',
       page: () => const Settings(),
+    ),
+    GetPage(
+      name: '/importwallet',
+      page: () => const WalletImport(),
     ),
   ];
 
