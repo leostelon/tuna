@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:ui';
 
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tuna/api/scrollscan.dart';
 import 'package:tuna/components/add_contact_modal.dart';
 import 'package:tuna/themes.dart';
@@ -82,6 +84,62 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ClipRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade600.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: Row(children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      child: IconButton(
+                        icon: SvgPicture.asset(
+                          "assets/paper-plane-solid.svg",
+                          semanticsLabel: 'Send logo',
+                          color: const Color.fromRGBO(240, 240, 240, 1),
+                          height: 20,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ),
+                    FloatingActionButton(
+                      onPressed: () {},
+                      backgroundColor: Colors.grey.shade600.withOpacity(0.5),
+                      child: SvgPicture.asset(
+                        "assets/house-solid.svg",
+                        semanticsLabel: 'Send logo',
+                        color: const Color.fromRGBO(240, 240, 240, 1),
+                        height: 20,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      child: IconButton(
+                        icon: SvgPicture.asset(
+                          "assets/qrcode-solid.svg",
+                          semanticsLabel: 'Send logo',
+                          color: const Color.fromRGBO(240, 240, 240, 1),
+                          height: 20,
+                        ),
+                        onPressed: () {},
+                      ),
+                    )
+                  ]),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: RefreshIndicator(
         backgroundColor: primaryColor,
         color: Colors.white,
@@ -391,12 +449,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Container(
                         margin: const EdgeInsets.only(top: 12),
                         padding: const EdgeInsets.only(top: 10),
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(32),
-                          ),
-                        ),
                         child: transactions.isEmpty
                             ? const Padding(
                                 padding: EdgeInsets.symmetric(vertical: 8.0),

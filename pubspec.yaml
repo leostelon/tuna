@@ -19,6 +19,7 @@ dependencies:
   hex: ^0.2.0
   random_avatar: ^0.0.8
   qr_flutter: ^4.1.0
+  flutter_svg: ^2.0.7
 
 dev_dependencies:
   flutter_test:
