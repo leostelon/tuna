@@ -65,8 +65,8 @@ class _SendScreenState extends State<SendScreen> {
       });
       Get.offNamed("/transactions");
       await Future.delayed(const Duration(seconds: 1));
-      Get.snackbar("Successfully sent.",
-          "${controller.text} has been sent successfully.",
+      Get.snackbar("Successfully submitted.",
+          "${controller.text} has been submitted successfully.",
           snackPosition: SnackPosition.BOTTOM, backgroundColor: primaryColor);
     }
   }
@@ -96,7 +96,7 @@ class _SendScreenState extends State<SendScreen> {
               semanticsLabel: 'Send logo',
               height: 20,
             ),
-            onPressed: () {},
+            onPressed: () => Get.toNamed("/scanner"),
           ),
         ],
       ),

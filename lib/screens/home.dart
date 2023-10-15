@@ -107,7 +107,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: const Color.fromRGBO(240, 240, 240, 1),
                           height: 20,
                         ),
-                        onPressed: () {},
+                        onPressed: () => Get.toNamed("/send",
+                            arguments: {"symbol": "ETH", "address": "0x0"}),
                       ),
                     ),
                     FloatingActionButton(
@@ -129,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: const Color.fromRGBO(240, 240, 240, 1),
                           height: 20,
                         ),
-                        onPressed: () {},
+                        onPressed: () => Get.toNamed("/transactions"),
                       ),
                     )
                   ]),
