@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       backgroundColor: Colors.grey.shade600.withOpacity(0.5),
                       child: SvgPicture.asset(
                         "assets/house-solid.svg",
-                        semanticsLabel: 'Send logo',
+                        semanticsLabel: 'Home',
                         color: const Color.fromRGBO(240, 240, 240, 1),
                         height: 20,
                       ),
@@ -124,8 +124,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 4.0),
                       child: IconButton(
                         icon: SvgPicture.asset(
-                          "assets/qrcode-solid.svg",
-                          semanticsLabel: 'Send logo',
+                          "assets/repeat-solid.svg",
+                          semanticsLabel: 'transactions logo',
                           color: const Color.fromRGBO(240, 240, 240, 1),
                           height: 20,
                         ),
@@ -183,10 +183,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 const Color.fromARGB(255, 47, 47, 47),
                             radius: 28,
                             child: Center(
-                              child: Image.asset(
-                                "assets/settings.png",
-                                height: 28,
-                                color: Colors.white,
+                              child: SvgPicture.asset(
+                                "assets/gear-solid.svg",
+                                semanticsLabel: 'Settings',
+                                color: const Color.fromRGBO(240, 240, 240, 1),
+                                height: 20,
                               ),
                             ),
                           ),
@@ -447,7 +448,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Expanded(
                       child: Container(
-                        margin: const EdgeInsets.only(top: 12),
                         padding: const EdgeInsets.only(top: 10),
                         child: transactions.isEmpty
                             ? const Padding(
@@ -471,60 +471,54 @@ class _HomeScreenState extends State<HomeScreen> {
                                         : transactions.length
                                     : 0,
                                 itemBuilder: (_, ind) {
-                                  return Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 4.0),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          border: Border(
-                                              bottom: BorderSide(
-                                                  color:
-                                                      Colors.grey.shade200))),
-                                      child: ListTile(
-                                        leading: CircleAvatar(
-                                          backgroundColor: Colors.grey.shade100,
-                                          child: Center(
-                                            child: ownAddress(
-                                                    transactions[ind]['to'])
-                                                ? RotatedBox(
-                                                    quarterTurns: 2,
-                                                    child: Icon(
-                                                        Icons
-                                                            .arrow_outward_sharp,
-                                                        color: Colors
-                                                            .green.shade400))
-                                                : Icon(
-                                                    Icons.arrow_outward_sharp,
-                                                    color: Colors.red.shade400),
-                                          ),
+                                  return Container(
+                                    decoration: BoxDecoration(
+                                      color:
+                                          Colors.grey.shade100.withOpacity(0.1),
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: ListTile(
+                                      leading: CircleAvatar(
+                                        backgroundColor: Colors.grey.shade100,
+                                        child: Center(
+                                          child: ownAddress(
+                                                  transactions[ind]['to'])
+                                              ? RotatedBox(
+                                                  quarterTurns: 2,
+                                                  child: Icon(
+                                                      Icons.arrow_outward_sharp,
+                                                      color: Colors
+                                                          .green.shade400))
+                                              : Icon(Icons.arrow_outward_sharp,
+                                                  color: Colors.red.shade400),
                                         ),
-                                        title: Text(
-                                          "${ownAddress(transactions[ind]['to']) ? "Recieved from" : "Sent to"} ${(ownAddress(transactions[ind]['to']) ? transactions[ind]['from'] : transactions[ind]['to'])?.substring(37, 42)}",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.grey.shade800),
-                                        ),
-                                        subtitle: Text(
-                                          TimeFormatter.formattTime(DateTime
-                                              .fromMillisecondsSinceEpoch(
-                                                  int.parse(transactions[ind]
-                                                          ['timeStamp']) *
-                                                      1000)),
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.grey.shade500,
-                                          ),
-                                        ),
-                                        trailing: Text(
-                                          "${EtherAmount.fromBase10String(EtherUnit.wei, transactions[ind]['value']).getValueInUnit(EtherUnit.ether).toStringAsFixed(2)} FRAX USD",
-                                          style: TextStyle(
+                                      ),
+                                      title: Text(
+                                        "${ownAddress(transactions[ind]['to']) ? "Recieved from" : "Sent to"} ${(ownAddress(transactions[ind]['to']) ? transactions[ind]['from'] : transactions[ind]['to'])?.substring(37, 42)}",
+                                        style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            color: ownAddress(
-                                                    transactions[ind]['to'])
-                                                ? Colors.green.shade400
-                                                : Colors.grey.shade800,
-                                            fontSize: 18,
-                                          ),
+                                            color: Colors.grey.shade100),
+                                      ),
+                                      subtitle: Text(
+                                        TimeFormatter.formattTime(
+                                            DateTime.fromMillisecondsSinceEpoch(
+                                                int.parse(transactions[ind]
+                                                        ['timeStamp']) *
+                                                    1000)),
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.grey.shade500,
+                                        ),
+                                      ),
+                                      trailing: Text(
+                                        "${EtherAmount.fromBase10String(EtherUnit.wei, transactions[ind]['value']).getValueInUnit(EtherUnit.ether).toStringAsFixed(2)} ETH",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: ownAddress(
+                                                  transactions[ind]['to'])
+                                              ? Colors.green.shade400
+                                              : Colors.grey.shade800,
+                                          fontSize: 18,
                                         ),
                                       ),
                                     ),

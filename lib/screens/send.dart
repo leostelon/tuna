@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tuna/components/button.dart';
 import 'package:tuna/components/select_address_modal.dart';
 import 'package:tuna/themes.dart';
@@ -89,9 +90,14 @@ class _SendScreenState extends State<SendScreen> {
           style: TextStyle(color: Colors.black),
         ),
         actions: [
-          IconButton.outlined(
-              onPressed: () => Get.toNamed("/scanner"),
-              icon: const Icon(Icons.qr_code))
+          IconButton(
+            icon: SvgPicture.asset(
+              "assets/qrcode-solid.svg",
+              semanticsLabel: 'Send logo',
+              height: 20,
+            ),
+            onPressed: () {},
+          ),
         ],
       ),
       body: Column(children: [
