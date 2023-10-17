@@ -98,7 +98,6 @@ class _SendScreenState extends State<SendScreen> {
             onPressed: () => Get.toNamed("/scanner"),
           ),
         ],
-        backgroundColor: const Color.fromRGBO(255, 248, 243, 1),
       ),
       body: Column(children: [
         ListTile(

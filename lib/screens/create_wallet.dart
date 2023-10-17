@@ -41,7 +41,6 @@ class _CreateWalletState extends State<CreateWallet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(),
       body: Padding(
           padding: const EdgeInsets.all(8.0),

@@ -20,7 +20,6 @@ class _RecieveScreenState extends State<RecieveScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
           title: const Text(
         'Recieve Payment',

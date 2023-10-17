@@ -18,7 +18,6 @@ class _WalletImportState extends State<WalletImport> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(
           "Import Wallet",

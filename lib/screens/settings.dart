@@ -16,7 +16,6 @@ class Settings extends StatelessWidget {
           style: TextStyle(color: Colors.black87),
         ),
       ),
-      backgroundColor: Colors.white,
       body: ListView(children: [
         ListTile(
           title: const Text("Copy Mnemonic"),

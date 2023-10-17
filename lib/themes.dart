@@ -10,7 +10,7 @@ ThemeData themeData() {
     // scaffoldBackgroundColor: const Color.fromARGB(255, 27, 27, 27),
     scaffoldBackgroundColor: const Color.fromRGBO(255, 248, 243, 1),
     appBarTheme: base.appBarTheme.copyWith(
-      color: Colors.white,
+      backgroundColor: const Color.fromRGBO(255, 248, 243, 1),
       elevation: 0,
       iconTheme: const IconThemeData(
         color: Colors.black,
