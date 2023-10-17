@@ -80,7 +80,6 @@ class _SelectAddressModalState extends State<SelectAddressModal> {
                 Button(
                   title: "Continue",
                   backgroundColor: primaryColor,
-                  fontColor: Colors.white,
                   onClick: () {
                     if (address.length != 42 || !address.contains("0x")) {
                       return Get.snackbar(

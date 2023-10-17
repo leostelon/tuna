@@ -72,8 +72,7 @@ class _WalletImportState extends State<WalletImport> {
                   children: [
                     Button(
                       title: "Import Wallet",
-                      backgroundColor: Colors.black,
-                      fontColor: Colors.white,
+                      backgroundColor: primaryColor,
                       onClick: () {
                         if (pK == "" || !(pK.length == 64 || pK.length == 66)) {
                           return Get.snackbar("Invalid private key!",

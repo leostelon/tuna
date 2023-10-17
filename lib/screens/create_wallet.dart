@@ -119,7 +119,6 @@ class _CreateWalletState extends State<CreateWallet> {
                     Button(
                       title: "Next",
                       backgroundColor: primaryColor,
-                      fontColor: Colors.white,
                       onClick: () => Get.toNamed("/index"),
                     ),
                   ],
