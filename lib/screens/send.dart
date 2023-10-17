@@ -83,7 +83,6 @@ class _SendScreenState extends State<SendScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(
           "Send Crypto",
@@ -99,9 +98,9 @@ class _SendScreenState extends State<SendScreen> {
             onPressed: () => Get.toNamed("/scanner"),
           ),
         ],
+        backgroundColor: const Color.fromRGBO(255, 248, 243, 1),
       ),
       body: Column(children: [
-        const Text("send"),
         ListTile(
           title: Text(address != null ? "Sending to" : "Select address"),
           subtitle: Text(address ?? "Tap to select or paste address"),
@@ -179,7 +178,6 @@ class _SendScreenState extends State<SendScreen> {
               Button(
                 title: "Send",
                 backgroundColor: primaryColor,
-                fontColor: Colors.white,
                 onClick: () {
                   sc();
                 },
