@@ -85,7 +85,6 @@ class _AddContactModalState extends State<AddContactModal> {
               Button(
                 title: "Add Contact",
                 backgroundColor: primaryColor,
-                fontColor: Colors.white,
                 loading: loading,
                 onClick: aC,
               )

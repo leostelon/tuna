@@ -58,7 +58,10 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
               )
             : transactions.isEmpty
                 ? const Center(
-                    child: Text("You haven't made any transactions📥"))
+                    child: Text(
+                    "You haven't made any transactions📥",
+                    style: TextStyle(color: Colors.white),
+                  ))
                 : ListView.builder(
                     physics: const AlwaysScrollableScrollPhysics(),
                     shrinkWrap: false,
