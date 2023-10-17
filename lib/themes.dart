@@ -7,7 +7,8 @@ ThemeData themeData() {
   final ThemeData base = ThemeData();
   return base.copyWith(
     primaryColor: primaryColor,
-    scaffoldBackgroundColor: const Color.fromARGB(255, 27, 27, 27),
+    // scaffoldBackgroundColor: const Color.fromARGB(255, 27, 27, 27),
+    scaffoldBackgroundColor: const Color.fromRGBO(255, 248, 243, 1),
     appBarTheme: base.appBarTheme.copyWith(
       color: Colors.white,
       elevation: 0,
@@ -39,6 +40,6 @@ ThemeData themeData() {
     ),
     textTheme: base.textTheme.copyWith(
         bodyMedium:
-            const TextStyle(color: Colors.white, fontFamily: "SplineSansMono")),
+            const TextStyle(color: Colors.black, fontFamily: "SplineSansMono")),
   );
 }

@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             ClipRect(
               child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.grey.shade600.withOpacity(0.5),
@@ -180,14 +180,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         GestureDetector(
                           onTap: () => Get.toNamed("/settings"),
                           child: CircleAvatar(
-                            backgroundColor:
-                                const Color.fromARGB(255, 47, 47, 47),
+                            backgroundColor: Colors.black87.withOpacity(0.3),
                             radius: 28,
                             child: Center(
                               child: SvgPicture.asset(
                                 "assets/gear-solid.svg",
                                 semanticsLabel: 'Settings',
-                                color: const Color.fromRGBO(240, 240, 240, 1),
+                                color: Color.fromARGB(255, 255, 255, 255),
                                 height: 20,
                               ),
                             ),
@@ -201,7 +200,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: (MediaQuery.of(context).size.height / 100) * 22.5,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(32),
-                        color: primaryColor,
+                        color: const Color.fromRGBO(255, 219, 176, 1),
                       ),
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -217,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w400,
-                                        color: Colors.white70),
+                                        color: Colors.black54),
                                   ),
                                   const SizedBox(height: 8),
                                   Text(
@@ -240,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Image.asset(
                                     "assets/eth.png",
                                     height: 28,
-                                    color: Colors.white,
+                                    color: Colors.black,
                                   ),
                                   GestureDetector(
                                     onTap: () {
@@ -254,7 +253,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: Text(
                                       "${address.substring(0, 6)} **** **** ${address.substring(38, 42)}",
                                       style: const TextStyle(
-                                        color: Colors.white70,
+                                        color: Colors.black87,
                                       ),
                                     ),
                                   )
@@ -270,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Expanded(
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: const Color.fromRGBO(255, 104, 75, 1),
                               borderRadius: BorderRadius.circular(50),
                             ),
                             padding: const EdgeInsets.all(12),
@@ -283,8 +282,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   CircleAvatar(
                                     radius: 22,
-                                    backgroundColor:
-                                        Color.fromRGBO(253, 201, 46, 1),
+                                    backgroundColor: Colors.white,
                                     child: Icon(
                                       Icons.arrow_outward_sharp,
                                       size: 26,
@@ -296,7 +294,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     "Send",
                                     style: TextStyle(
                                       fontSize: 20,
-                                      color: Colors.black87,
+                                      color: Colors.white,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -309,7 +307,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Expanded(
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: const Color.fromRGBO(255, 104, 75, 1),
                               borderRadius: BorderRadius.circular(50),
                             ),
                             padding: const EdgeInsets.all(12),
@@ -319,8 +317,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   CircleAvatar(
                                       radius: 22,
-                                      backgroundColor:
-                                          Color.fromRGBO(253, 201, 46, 1),
+                                      backgroundColor: Colors.white,
                                       child: RotatedBox(
                                         quarterTurns: 2,
                                         child: Icon(
@@ -334,7 +331,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     "Request",
                                     style: TextStyle(
                                       fontSize: 20,
-                                      color: Colors.black87,
+                                      color: Colors.white,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   )
@@ -353,7 +350,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const Text(
                           "Quick Send",
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 18,
                               fontWeight: FontWeight.w500),
                         ),
@@ -395,7 +392,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   (ind == contacts.length
                                       ? CircleAvatar(
                                           radius: 30,
-                                          backgroundColor: Colors.grey.shade800,
+                                          backgroundColor:
+                                              Colors.black87.withOpacity(0.3),
                                           child: const Center(
                                             child: Icon(
                                               Icons.add,
@@ -414,7 +412,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ? "Add contact"
                                         : contacts[ind]['name'],
                                     style:
-                                        const TextStyle(color: Colors.white54),
+                                        const TextStyle(color: Colors.black87),
                                   )
                                 ],
                               ),
@@ -430,7 +428,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const Text(
                           "Recent Activity",
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 18,
                               fontWeight: FontWeight.w500),
                         ),
@@ -474,13 +472,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 itemBuilder: (_, ind) {
                                   return Container(
                                     decoration: BoxDecoration(
-                                      color:
-                                          Colors.grey.shade100.withOpacity(0.1),
+                                      color: Colors.black54.withOpacity(0.1),
                                       borderRadius: BorderRadius.circular(8),
                                     ),
+                                    margin: const EdgeInsets.only(bottom: 8),
                                     child: ListTile(
                                       leading: CircleAvatar(
-                                        backgroundColor: Colors.grey.shade100,
+                                        backgroundColor: Colors.black12,
                                         child: Center(
                                           child: ownAddress(
                                                   transactions[ind]['to'])
@@ -496,9 +494,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                       title: Text(
                                         "${ownAddress(transactions[ind]['to']) ? "Recieved from" : "Sent to"} ${(ownAddress(transactions[ind]['to']) ? transactions[ind]['from'] : transactions[ind]['to'])?.substring(37, 42)}",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.grey.shade100),
+                                            color: Colors.black87),
                                       ),
                                       subtitle: Text(
                                         TimeFormatter.formattTime(
@@ -506,19 +504,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 int.parse(transactions[ind]
                                                         ['timeStamp']) *
                                                     1000)),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.w500,
-                                          color: Colors.grey.shade500,
+                                          color: Colors.black54,
                                         ),
                                       ),
                                       trailing: Text(
-                                        "${EtherAmount.fromBase10String(EtherUnit.wei, transactions[ind]['value']).getValueInUnit(EtherUnit.ether).toStringAsFixed(2)} ETH",
+                                        "${!ownAddress(transactions[ind]['to']) ? "-" : ""}${EtherAmount.fromBase10String(EtherUnit.wei, transactions[ind]['value']).getValueInUnit(EtherUnit.ether).toStringAsFixed(2)} ETH",
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: ownAddress(
                                                   transactions[ind]['to'])
                                               ? Colors.green.shade400
-                                              : Colors.grey.shade800,
+                                              : Colors.red.shade400,
                                           fontSize: 18,
                                         ),
                                       ),
