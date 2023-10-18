@@ -13,50 +13,63 @@ class WelcomeState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xffFFDBB0),
       body: SizedBox(
         width: MediaQuery.sizeOf(context).width,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CircleAvatar(
-              radius: 60,
-              backgroundImage: AssetImage("assets/logo.png"),
-            ),
-            const SizedBox(height: 40),
-            const Text(
-              "Welcome to Tuna🐟",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 24,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            Text(
-              "All things on Scroll in a powerful wallet⚡",
-              style: TextStyle(
-                color: Colors.grey.shade700,
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            const SizedBox(height: 24),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Column(children: [
-                Button(
-                  title: "Import Wallet",
-                  onClick: () => Get.toNamed("/importwallet"),
-                ),
-                const SizedBox(height: 8),
-                Button(
-                  title: "Create Wallet",
-                  backgroundColor: Colors.black87,
-                  fontColor: Colors.white,
-                  onClick: () => Get.toNamed("/createwallet"),
-                )
-              ]),
+              margin: EdgeInsets.only(top: context.height / 6),
+              child: Column(
+                children: [
+                  const CircleAvatar(
+                    radius: 60,
+                    backgroundImage: AssetImage("assets/logo.png"),
+                  ),
+                  const Text(
+                    "Welcome to Tuna🐟",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  Text(
+                    "All things on Scroll in a powerful wallet⚡",
+                    style: TextStyle(
+                      color: Colors.grey.shade700,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(bottom: 30),
+              child: Column(
+                children: [
+                  const SizedBox(height: 24),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Column(children: [
+                      Button(
+                        title: "Import Wallet",
+                        onClick: () => Get.toNamed("/importwallet"),
+                      ),
+                      const SizedBox(height: 8),
+                      Button(
+                        title: "Create Wallet",
+                        backgroundColor: Colors.black87,
+                        fontColor: Colors.white,
+                        onClick: () => Get.toNamed("/createwallet"),
+                      )
+                    ]),
+                  )
+                ],
+              ),
             )
           ],
         ),
