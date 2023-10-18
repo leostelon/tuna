@@ -41,23 +41,22 @@ class _CreateWalletState extends State<CreateWallet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text(
+          "Create Wallet",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
       body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
-                    "Create Account",
-                    style: TextStyle(
-                      fontSize: 28,
-                      color: Colors.black87,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  const SizedBox(height: 28),
                   const Text(
                     "Create seed phrase",
                     style: TextStyle(
@@ -65,6 +64,7 @@ class _CreateWalletState extends State<CreateWallet> {
                       color: Colors.black87,
                       fontWeight: FontWeight.w500,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 4),
                   const Text(
@@ -72,6 +72,7 @@ class _CreateWalletState extends State<CreateWallet> {
                     style: TextStyle(
                       color: Colors.black54,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 28),
                   GridView.builder(
@@ -94,7 +95,7 @@ class _CreateWalletState extends State<CreateWallet> {
                           child: Center(
                               child: Text(
                             seedPhrase.split(" ")[i].toString(),
-                            style: const TextStyle(color: Colors.black87),
+                            style: const TextStyle(color: Colors.black),
                           )),
                         );
                       }),
@@ -106,7 +107,10 @@ class _CreateWalletState extends State<CreateWallet> {
                       child: Text(
                         "Copy to clipboard",
                         style: TextStyle(
-                            color: primaryColor, fontWeight: FontWeight.w600),
+                          fontSize: 16,
+                          color: primaryColor,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ),
