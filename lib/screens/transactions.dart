@@ -40,10 +40,15 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Text("Transactions"),
-          backgroundColor: const Color.fromARGB(255, 27, 27, 27)),
-      backgroundColor: const Color.fromARGB(255, 27, 27, 27),
+        automaticallyImplyLeading: false,
+        title: const Text(
+          "Transactions",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
       body: RefreshIndicator(
         backgroundColor: primaryColor,
         color: Colors.white,
@@ -56,63 +61,70 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                 height: 4,
                 child: LinearProgressIndicator(),
               )
-            : transactions.isEmpty
-                ? const Center(
-                    child: Text(
-                    "You haven't made any transactions📥",
-                    style: TextStyle(color: Colors.white),
-                  ))
-                : ListView.builder(
-                    physics: const AlwaysScrollableScrollPhysics(),
-                    shrinkWrap: false,
-                    itemCount: transactions.length,
-                    itemBuilder: (_, ind) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 4.0, vertical: 4),
-                        child: ListTile(
-                          leading: CircleAvatar(
-                            backgroundColor: Colors.grey.shade800,
-                            child: Center(
-                              child: ownAddress(transactions[ind]['to'])
-                                  ? const RotatedBox(
-                                      quarterTurns: 2,
-                                      child: Icon(Icons.arrow_outward_sharp,
-                                          color: Colors.green))
-                                  : const Icon(Icons.arrow_outward_sharp,
-                                      color: Colors.red),
+            : Container(
+                padding: const EdgeInsets.all(10),
+                child: transactions.isEmpty
+                    ? const Center(
+                        child: Text(
+                        "You haven't made any transactions📥",
+                        style: TextStyle(color: Colors.white),
+                      ))
+                    : ListView.builder(
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        shrinkWrap: false,
+                        itemCount: transactions.length,
+                        itemBuilder: (_, ind) {
+                          return Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black54.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(8),
                             ),
-                          ),
-                          title: Text(
-                            "${ownAddress(transactions[ind]['to']) ? "Recieved from" : "Sent to"} ${(ownAddress(transactions[ind]['to']) ? transactions[ind]['from'] : transactions[ind]['to'])?.substring(37, 42)}",
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          subtitle: Text(
-                            TimeFormatter.formattTime(
-                                DateTime.fromMillisecondsSinceEpoch(
-                                    int.parse(transactions[ind]['timeStamp']) *
-                                        1000)),
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white54,
+                            margin: const EdgeInsets.only(bottom: 8),
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundColor: Colors.black12,
+                                child: Center(
+                                  child: ownAddress(transactions[ind]['to'])
+                                      ? const RotatedBox(
+                                          quarterTurns: 2,
+                                          child: Icon(Icons.arrow_outward_sharp,
+                                              color: Colors.green))
+                                      : const Icon(Icons.arrow_outward_sharp,
+                                          color: Colors.red),
+                                ),
+                              ),
+                              title: Text(
+                                "${ownAddress(transactions[ind]['to']) ? "Recieved from" : "Sent to"} ${(ownAddress(transactions[ind]['to']) ? transactions[ind]['from'] : transactions[ind]['to'])?.substring(37, 42)}",
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black87),
+                              ),
+                              subtitle: Text(
+                                TimeFormatter.formattTime(
+                                    DateTime.fromMillisecondsSinceEpoch(
+                                        int.parse(transactions[ind]
+                                                ['timeStamp']) *
+                                            1000)),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black54,
+                                ),
+                              ),
+                              trailing: Text(
+                                "${EtherAmount.fromBase10String(EtherUnit.wei, transactions[ind]['value']).getValueInUnit(EtherUnit.ether).toStringAsFixed(2)} eth",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: ownAddress(transactions[ind]['to'])
+                                      ? Colors.green.shade400
+                                      : Colors.red.shade400,
+                                  fontSize: 18,
+                                ),
+                              ),
                             ),
-                          ),
-                          trailing: Text(
-                            "${EtherAmount.fromBase10String(EtherUnit.wei, transactions[ind]['value']).getValueInUnit(EtherUnit.ether).toStringAsFixed(2)} eth",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: ownAddress(transactions[ind]['to'])
-                                  ? Colors.green
-                                  : Colors.white,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                          );
+                        },
+                      ),
+              ),
       ),
     );
   }
