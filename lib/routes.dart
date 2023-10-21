@@ -1,3 +1,4 @@
+import 'package:tuna/screens/bridge.dart';
 import 'package:tuna/screens/create_wallet.dart';
 import 'package:tuna/screens/home.dart';
 import 'package:tuna/screens/qr_scanner.dart';
@@ -53,6 +54,10 @@ class Routers {
     GetPage(
       name: '/scanner',
       page: () => const QrScanner(),
+    ),
+    GetPage(
+      name: '/bridge',
+      page: () => const Bridge(),
     ),
   ];
 
