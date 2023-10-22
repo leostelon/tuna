@@ -359,7 +359,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: const Text(
                             "Add new",
                             style: TextStyle(
-                              color: Colors.white54,
+                              color: Colors.black,
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
                             ),
@@ -437,7 +437,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: const Text(
                             "See all",
                             style: TextStyle(
-                              color: Colors.white54,
+                              color: Colors.black,
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
                             ),
